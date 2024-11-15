@@ -1,46 +1,17 @@
-const prompt = require("prompt-sync")();
+let flavor = prompt("Please enter your Froyo flavor(s)! \n(use commas, but no spaces when entering more than one flavor)");
 
-let userInputString = prompt("Please enter your Froyo flavor(s)! \n(use commas, but no spaces when entering more than one flavor)");
+flavor = flavor.split(",");
 
-console.log(userInputString);
 
-// const flavor = {
-//     flavor: "chocolate"
-// }
+const countflavor = (arr) => {
+    const count = {};
 
-const stringArray = userInputString.split(",");
+    for (let flavor of arr) {
+    flavor - flavor.trim();
 
-const flavor = (key, value) => {
-    const obj = {};
-    obj[key] = value;
-    return obj;
-    const count = flavor.length;
-    console.log(count);
-    };
+    flavor in count ? (count[flavor] += 1) : (count[flavor] = 1);
+}
+return count;
+};
 
-    
-
-    console.table(flavor);
-    console.log("bracket notaion", flavor["color"]);
-    console.log("looping over object");
-
-    for (const key in flavor) {
-    console.log(`The flavor ${key} is ${flavor[key]}`);
-    console.log(key);
-    console.log(flavor[key]);
-    }
-
-    console.log("Object.keys", Object.keys(flavor));
-    console.log("Object.values", Object.values(flavor));
-    console.log("Object.entries", Object.entries(flavor));
-
-    const printObject = (obj) => {
-    console.log("obj passed to function");
-    for (const key in obj) {
-    console.log(`key: ${key}, value: ${obj[key]}`);
-     }
-     };
-
-    
-
-    
+console.table(countflavor(flavor));
