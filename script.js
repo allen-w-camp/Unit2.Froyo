@@ -14,7 +14,11 @@ const flavor = (key, value) => {
     const obj = {};
     obj[key] = value;
     return obj;
+    const count = flavor.length;
+    console.log(count);
     };
+
+    
 
     console.table(flavor);
     console.log("bracket notaion", flavor["color"]);
